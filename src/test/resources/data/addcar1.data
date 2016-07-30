@@ -1,0 +1,12 @@
+{
+    "vin": "Car2FromAddcar453",
+    "year": 2010,
+    "make": "Ford",
+    "model": "Taurus",
+    "odometer": 160000,
+    "openingBid": 1000,
+    "stockNumber": 43563,
+    "comments": "A beater",
+    "additionalComments": "Rust bucket for the winter"
+ }
+

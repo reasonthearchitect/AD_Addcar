@@ -1,0 +1,8 @@
+{
+  "generator-spring-rest": {
+    "baseName": "addcar",
+    "packageName": "com.rta.addcar",
+    "packageNameGenerated": "com.rta.addcar.generated",
+    "adddocker": "yes"
+  }
+}

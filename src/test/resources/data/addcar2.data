@@ -1,0 +1,12 @@
+{
+    "vin": "3rdCar",
+    "year": 2012,
+    "make": "Toyota",
+    "model": "Prius",
+    "odometer": 1600,
+    "openingBid": 8000,
+    "stockNumber": 4352,
+    "comments": "Something abou the car",
+    "additionalComments": "More about the car"
+ }
+
