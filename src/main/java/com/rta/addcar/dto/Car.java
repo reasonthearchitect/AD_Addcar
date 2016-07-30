@@ -10,6 +10,7 @@ public class Car {
 
     private String id;
     private String vin;
+    private String seller;
     private BigDecimal year;
     private String make;
     private String model;
