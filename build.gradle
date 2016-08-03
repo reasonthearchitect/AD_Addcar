@@ -2,10 +2,13 @@ buildscript {
     repositories {
         mavenLocal()
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath group: 'org.springframework.boot',  name: 'spring-boot-gradle-plugin',      version: spring_boot_version
-    }
+    } 
 
 }
 
@@ -49,7 +52,7 @@ clean {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.7'
+    gradleVersion = '2.14'
 }
 
 task stage(dependsOn: 'bootRepackage') {
