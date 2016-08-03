@@ -4,6 +4,10 @@ security.basic.enabled: false
 server:
     port: 8201
 
+demo:
+    carstore:
+        uri: http://172.31.7.17/api/cars/
+
 liquibase:
     context: dev
 

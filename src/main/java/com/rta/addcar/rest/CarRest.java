@@ -1,6 +1,7 @@
 package com.rta.addcar.rest; 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,19 +30,21 @@ public class CarRest {
 
         RestTemplate rt;
 
-        String uri = new String("http://localhost/api/cars/");
+        @Value("${demo.carstore.uri}")
+        String carstoreuri;
 
         public CarRest() {
-                rt = new RestTemplate();
-                rt.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                this.rt = new RestTemplate();
+                this.rt.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                this.vars = new HashMap<>();
         }
 
 
         @RequestMapping(method = RequestMethod.POST)
         public ResponseEntity<?> process(@RequestBody Car car ) {
                 try {
-                        Car returns = rt.postForObject(uri, car, Car.class, vars);
-                        source.send(returns);
+                        Car returns = rt.postForObject(this.carstoreuri, car, Car.class, this.vars);
+                        this.source.send(returns);
                         HttpHeaders httpHeaders = new HttpHeaders();
                         return new ResponseEntity<>(returns, httpHeaders, HttpStatus.CREATED);
                 } catch (Exception e) {
