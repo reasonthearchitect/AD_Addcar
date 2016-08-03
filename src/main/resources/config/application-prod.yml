@@ -6,20 +6,20 @@ server:
 
 demo:
     carstore:
-        uri: http://172.31.7.17/api/cars/
+        uri: http://172.31.55.162/api/cars/
 
 liquibase:
-    context: dev
+    context: prod
 
 spring:
     profiles:
-        active: dev
+        active: prod
     cloud:
         stream:
             kafka:
                 binder:
-                    zkNodes: 172.31.7.17
-                    brokers: 172.31.7.17
+                    zkNodes: 172.31.55.162
+                    brokers: 172.31.55.162
 
 metrics:
     jmx.enabled: true
