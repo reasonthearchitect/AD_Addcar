@@ -6,7 +6,7 @@ server:
 
 demo:
     carstore:
-        uri: http://172.31.55.162/api/cars/
+        uri: http://reasonthearchitect.com/api/cars/
 
 liquibase:
     context: prod
