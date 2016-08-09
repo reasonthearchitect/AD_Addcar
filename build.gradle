@@ -11,12 +11,12 @@ buildscript {
         classpath "io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE"
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.0.1"
     }
-
 }
 
 plugins {
-  id "io.spring.dependency-management" version "0.6.0.RELEASE"
-  id "org.sonarqube" version "2.0.1"
+    id "java"
+    id "jacoco"
+    id "org.sonarqube" version "1.2"
 }
 
 apply plugin: "io.spring.dependency-management"
@@ -24,6 +24,26 @@ apply plugin: "io.spring.dependency-management"
 dependencyManagement {
     imports {
         mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Brixton.SR3'
+    }
+}
+
+test {
+    jacoco {
+        excludes += ['**.generated.**']
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectName", "Add Car"
+
+        property "sonar.projectKey", "org.sonarqube:java-add-car-gradle"
+        property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
+        property "sonar.exclusions", "**/generated/**,**/Application.java"
+        property "sonar.sources", "src/main/java"
+        property "sonar.tests", "src/test/groovy"
+        property "sonar.language", "grvy"
+        property "sonar.binaries", "build/classes"
     }
 }
 
